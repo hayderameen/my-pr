@@ -1,0 +1,400 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workout Day Picker — LiftMark</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-primary': '#B22200',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#D93814',
+        'light-on-primary-container': '#FFFCFF',
+        'light-secondary': '#A0402A',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#FE876C',
+        'light-on-secondary-container': '#741F0D',
+        'light-tertiary': '#005CAF',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#0074DB',
+        'light-on-tertiary-container': '#FEFCFF',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FFDAD6',
+        'light-on-error-container': '#93000A',
+        'light-background': '#F8F9FF',
+        'light-on-background': '#0B1C30',
+        'light-surface': '#F8F9FF',
+        'light-surface-dim': '#CBDBF5',
+        'light-surface-bright': '#F8F9FF',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#EFF4FF',
+        'light-surface-container': '#E5EEFF',
+        'light-surface-container-high': '#DCE9FF',
+        'light-surface-container-highest': '#D3E4FE',
+        'light-on-surface': '#0B1C30',
+        'light-surface-variant': '#FFDAD2',
+        'light-on-surface-variant': '#5B403A',
+        'light-outline': '#907068',
+        'light-outline-variant': '#E4BEB5',
+        'light-inverse-surface': '#213145',
+        'light-inverse-on-surface': '#EAF1FF',
+        'light-inverse-primary': '#FFB4A3',
+        'light-shadow': '#000000',
+        'light-scrim': '#000000',
+        'dark-primary': '#FFB4A3',
+        'dark-on-primary': '#630F00',
+        'dark-primary-container': '#D93814',
+        'dark-on-primary-container': '#FFFCFF',
+        'dark-secondary': '#FFB4A3',
+        'dark-on-secondary': '#611202',
+        'dark-secondary-container': '#842B17',
+        'dark-on-secondary-container': '#FFA08A',
+        'dark-tertiary': '#A8C8FF',
+        'dark-on-tertiary': '#003061',
+        'dark-tertiary-container': '#0074DB',
+        'dark-on-tertiary-container': '#FEFCFF',
+        'dark-error': '#FFB4AB',
+        'dark-on-error': '#690005',
+        'dark-error-container': '#93000A',
+        'dark-on-error-container': '#FFDAD6',
+        'dark-background': '#031427',
+        'dark-on-background': '#D3E4FE',
+        'dark-surface': '#031427',
+        'dark-surface-dim': '#031427',
+        'dark-surface-bright': '#2A3A4F',
+        'dark-surface-container-lowest': '#000F21',
+        'dark-surface-container-low': '#0B1C30',
+        'dark-surface-container': '#102034',
+        'dark-surface-container-high': '#1B2B3F',
+        'dark-surface-container-highest': '#26364A',
+        'dark-on-surface': '#D3E4FE',
+        'dark-surface-variant': '#5B403A',
+        'dark-on-surface-variant': '#E4BEB5',
+        'dark-outline': '#AB8981',
+        'dark-outline-variant': '#5B403A',
+        'dark-inverse-surface': '#D3E4FE',
+        'dark-inverse-on-surface': '#213145',
+        'dark-inverse-primary': '#B72300',
+        'dark-shadow': '#000000',
+        'dark-scrim': '#000000',
+      },
+      borderRadius: {
+        'sm': '8px',
+        'DEFAULT': '12px',
+        'md': '16px',
+        'lg': '20px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '12px',
+        'gutter-lg': '16px',
+        'gutter-xl': '24px',
+        'section': '32px',
+        'page-margin': '16px',
+      },
+      fontFamily: {
+        'display': ['"Afacad Flux"', 'sans-serif'],
+        'headline': ['"Afacad Flux"', 'sans-serif'],
+        'title': ['"Afacad Flux"', 'sans-serif'],
+        'body': ['"Instrument Sans"', 'sans-serif'],
+        'label': ['"Instrument Sans"', 'sans-serif'],
+        'mono': ['"Spline Sans Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['56px', { lineHeight: '60px', letterSpacing: '-1.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['32px', { lineHeight: '36px', letterSpacing: '-0.75px', fontWeight: '700' }],
+        'headline-lg': ['36px', { lineHeight: '42px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'headline-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '700' }],
+        'headline-md': ['24px', { lineHeight: '30px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['20px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '18px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '600' }],
+        'mono-metric': ['48px', { lineHeight: '52px', letterSpacing: '-1px', fontWeight: '700' }],
+        'mono-metric-mobile': ['32px', { lineHeight: '36px', letterSpacing: '-0.75px', fontWeight: '700' }],
+        'mono-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'tick-feedback': '80ms',
+        'state-change': '120ms',
+        'surface-enter': '200ms',
+      },
+      transitionDelay: {
+        'tick-feedback': '0ms',
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'tick-feedback': 'ease-out',
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@600;700&amp;family=Instrument+Sans:wght@400;600&amp;family=Spline+Sans+Mono:wght@500;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-[884px] max-w-md mx-auto flex flex-col bg-light-surface" data-stitch-vh="min-h-[884px]===min-h-screen">
+
+    <!-- Sticky App Header -->
+    <header class="sticky top-0 z-20 bg-light-surface/95 border-b border-light-outline-variant/60 px-page-margin py-gutter-md flex items-center justify-between gap-gutter-md">
+      <div class="flex items-center gap-gutter-sm">
+        <span class="w-8 h-8 rounded-sm bg-light-primary text-light-on-primary inline-flex items-center justify-center">
+          <span class="material-symbols-outlined" aria-hidden="true">fitness_center</span>
+        </span>
+        <span class="font-headline text-title-lg text-light-on-surface" data-design-text-token="title-lg">LiftMark</span>
+      </div>
+
+      <button id="unit-toggle" type="button" data-component-id="button-secondary" data-component-type="button" data-component-variant="secondary" class="inline-flex items-center justify-center gap-gutter-xs bg-light-surface-container-lowest text-light-on-surface border border-light-outline-variant px-gutter-md py-gutter-xs rounded-full font-mono text-mono-sm transition-transform duration-state-change ease-state-change active:scale-95">
+        <span id="unit-label" data-design-text-token="mono-sm">KG</span>
+      </button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 px-page-margin py-gutter-lg flex flex-col gap-gutter-lg">
+
+      <!-- Page Heading -->
+      <section class="flex flex-col gap-gutter-xs">
+        <h1 class="font-display text-display-lg-mobile text-light-on-surface text-balance" data-design-text-token="display-lg-mobile">Choose your workout</h1>
+        <p class="font-body text-body-md text-light-on-surface-variant text-pretty" data-design-text-token="body-md">Tap a training day to start logging sets. It stays active until you end it.</p>
+      </section>
+
+      <!-- Active Session Banner -->
+      <article id="active-banner" data-component-id="card-action" data-component-type="card" data-component-variant="action" class="bg-light-inverse-surface text-light-inverse-on-surface rounded-xl p-gutter-lg flex items-center justify-between gap-gutter-md">
+        <a href="../exercise-list/ExerciseList.html" class="flex-1 flex flex-col gap-gutter-xs min-w-0">
+          <div class="flex items-center gap-gutter-xs">
+            <span class="w-2 h-2 rounded-full bg-light-primary-container inline-block"></span>
+            <span class="font-label text-label-sm uppercase text-light-inverse-primary" data-design-text-token="label-sm">In Progress</span>
+          </div>
+          <h2 class="font-title text-title-lg text-light-inverse-on-surface" data-design-text-token="title-lg">Push Day Active</h2>
+        </a>
+        <footer>
+          <button id="end-workout-btn" type="button" class="bg-light-primary text-light-on-primary px-gutter-lg py-gutter-sm rounded-full font-label text-label-lg transition-transform duration-state-change ease-state-change active:scale-95">
+            <span data-design-text-token="label-lg">End</span>
+          </button>
+        </footer>
+      </article>
+
+      <!-- Workout Days Header + Saved Order Control -->
+      <div class="flex items-center justify-between gap-gutter-sm">
+        <span class="font-label text-label-sm uppercase text-light-on-surface-variant" data-design-text-token="label-sm">Your Rotation</span>
+        <button id="reorder-days-btn" type="button" aria-pressed="false" class="inline-flex items-center gap-gutter-xs px-gutter-md py-gutter-xs rounded-full bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface font-label text-label-sm transition-transform duration-state-change ease-state-change active:scale-95">
+          <span class="material-symbols-outlined" aria-hidden="true">swap_vert</span>
+          <span id="reorder-days-label" data-design-text-token="label-sm">Reorder</span>
+        </button>
+      </div>
+
+      <!-- Big Workout Day Boxes (2-column grid, saved preference order) -->
+      <section id="days-grid" aria-label="Workout days" class="grid grid-cols-2 gap-gutter-md items-stretch">
+
+        <!-- Push Day (Active) -->
+        <div data-day-id="push" class="day-card-wrap relative">
+          <a href="../exercise-list/ExerciseList.html" data-component-id="card-interactive-2" data-component-type="card" data-component-variant="interactive" class="h-full bg-light-primary text-light-on-primary rounded-xl p-gutter-lg flex flex-col justify-between gap-gutter-xl min-h-36 transition-transform duration-state-change ease-state-change hover:bg-light-primary-container active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-primary">
+            <header class="flex items-center justify-between">
+              <span class="material-symbols-outlined" aria-hidden="true">bolt</span>
+              <span class="font-label text-label-sm uppercase bg-light-on-primary/15 px-gutter-sm py-gutter-xs rounded-full" data-design-text-token="label-sm">Active</span>
+            </header>
+            <div class="flex flex-col gap-gutter-xs">
+              <h3 class="font-headline text-headline-md" data-design-text-token="headline-md">Push Day</h3>
+              <p class="font-body text-body-md text-light-on-primary/90" data-design-text-token="body-md">Chest, shoulders</p>
+            </div>
+          </a>
+          <div class="day-reorder-controls hidden absolute top-2 right-2 flex items-center gap-gutter-xs">
+            <button type="button" data-move="-1" aria-label="Move Push Day earlier" class="w-8 h-8 rounded-full bg-light-surface-container-lowest text-light-on-surface border border-light-outline-variant inline-flex items-center justify-center"><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></button>
+            <button type="button" data-move="1" aria-label="Move Push Day later" class="w-8 h-8 rounded-full bg-light-surface-container-lowest text-light-on-surface border border-light-outline-variant inline-flex items-center justify-center"><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+          </div>
+        </div>
+
+        <!-- Pull Day -->
+        <div data-day-id="pull" class="day-card-wrap relative">
+          <a href="../exercise-list/ExerciseList.html" data-component-id="card-interactive" data-component-type="card" data-component-variant="interactive" class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-gutter-lg flex flex-col justify-between gap-gutter-xl min-h-36 transition-transform duration-state-change ease-state-change hover:bg-light-surface-container-low active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-primary">
+            <header class="flex items-center justify-between">
+              <span class="material-symbols-outlined text-light-primary" aria-hidden="true">rowing</span>
+              <span class="font-mono text-mono-sm text-light-on-surface-variant" data-design-text-token="mono-sm">2d ago</span>
+            </header>
+            <div class="flex flex-col gap-gutter-xs">
+              <h3 class="font-headline text-headline-md text-light-on-surface" data-design-text-token="headline-md">Pull Day</h3>
+              <p class="font-body text-body-md text-light-on-surface-variant" data-design-text-token="body-md">Back, biceps</p>
+            </div>
+          </a>
+          <div class="day-reorder-controls hidden absolute top-2 right-2 flex items-center gap-gutter-xs">
+            <button type="button" data-move="-1" aria-label="Move Pull Day earlier" class="w-8 h-8 rounded-full bg-light-surface-container-lowest text-light-on-surface border border-light-outline-variant inline-flex items-center justify-center"><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></button>
+            <button type="button" data-move="1" aria-label="Move Pull Day later" class="w-8 h-8 rounded-full bg-light-surface-container-lowest text-light-on-surface border border-light-outline-variant inline-flex items-center justify-center"><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+          </div>
+        </div>
+
+        <!-- Leg Day -->
+        <div data-day-id="legs" class="day-card-wrap relative">
+          <a href="../exercise-list/ExerciseList.html" data-component-id="card-interactive" data-component-type="card" data-component-variant="interactive" class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-gutter-lg flex flex-col justify-between gap-gutter-xl min-h-36 transition-transform duration-state-change ease-state-change hover:bg-light-surface-container-low active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-primary">
+            <header class="flex items-center justify-between">
+              <span class="material-symbols-outlined text-light-primary" aria-hidden="true">directions_run</span>
+              <span class="font-mono text-mono-sm text-light-on-surface-variant" data-design-text-token="mono-sm">4d ago</span>
+            </header>
+            <div class="flex flex-col gap-gutter-xs">
+              <h3 class="font-headline text-headline-md text-light-on-surface" data-design-text-token="headline-md">Leg Day</h3>
+              <p class="font-body text-body-md text-light-on-surface-variant" data-design-text-token="body-md">Quads, hamstrings</p>
+            </div>
+          </a>
+          <div class="day-reorder-controls hidden absolute top-2 right-2 flex items-center gap-gutter-xs">
+            <button type="button" data-move="-1" aria-label="Move Leg Day earlier" class="w-8 h-8 rounded-full bg-light-surface-container-lowest text-light-on-surface border border-light-outline-variant inline-flex items-center justify-center"><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></button>
+            <button type="button" data-move="1" aria-label="Move Leg Day later" class="w-8 h-8 rounded-full bg-light-surface-container-lowest text-light-on-surface border border-light-outline-variant inline-flex items-center justify-center"><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+          </div>
+        </div>
+
+        <!-- Chest Day -->
+        <div data-day-id="chest" class="day-card-wrap relative">
+          <a href="../exercise-list/ExerciseList.html" data-component-id="card-interactive" data-component-type="card" data-component-variant="interactive" class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-gutter-lg flex flex-col justify-between gap-gutter-xl min-h-36 transition-transform duration-state-change ease-state-change hover:bg-light-surface-container-low active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-primary">
+            <header class="flex items-center justify-between">
+              <span class="material-symbols-outlined text-light-primary" aria-hidden="true">fitness_center</span>
+              <span class="font-mono text-mono-sm text-light-on-surface-variant" data-design-text-token="mono-sm">4 lifts</span>
+            </header>
+            <div class="flex flex-col gap-gutter-xs">
+              <h3 class="font-headline text-headline-md text-light-on-surface" data-design-text-token="headline-md">Chest Day</h3>
+              <p class="font-body text-body-md text-light-on-surface-variant" data-design-text-token="body-md">Flat, incline, fly</p>
+            </div>
+          </a>
+          <div class="day-reorder-controls hidden absolute top-2 right-2 flex items-center gap-gutter-xs">
+            <button type="button" data-move="-1" aria-label="Move Chest Day earlier" class="w-8 h-8 rounded-full bg-light-surface-container-lowest text-light-on-surface border border-light-outline-variant inline-flex items-center justify-center"><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></button>
+            <button type="button" data-move="1" aria-label="Move Chest Day later" class="w-8 h-8 rounded-full bg-light-surface-container-lowest text-light-on-surface border border-light-outline-variant inline-flex items-center justify-center"><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+          </div>
+        </div>
+
+        <!-- Arms & Core -->
+        <div data-day-id="arms" class="day-card-wrap relative">
+          <a href="../exercise-list/ExerciseList.html" data-component-id="card-interactive" data-component-type="card" data-component-variant="interactive" class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-gutter-lg flex flex-col justify-between gap-gutter-xl min-h-36 transition-transform duration-state-change ease-state-change hover:bg-light-surface-container-low active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-primary">
+            <header class="flex items-center justify-between">
+              <span class="material-symbols-outlined text-light-primary" aria-hidden="true">sports_gymnastics</span>
+              <span class="font-mono text-mono-sm text-light-on-surface-variant" data-design-text-token="mono-sm">6 lifts</span>
+            </header>
+            <div class="flex flex-col gap-gutter-xs">
+              <h3 class="font-headline text-headline-md text-light-on-surface" data-design-text-token="headline-md">Arms &amp; Core</h3>
+              <p class="font-body text-body-md text-light-on-surface-variant" data-design-text-token="body-md">Curls, dips, abs</p>
+            </div>
+          </a>
+          <div class="day-reorder-controls hidden absolute top-2 right-2 flex items-center gap-gutter-xs">
+            <button type="button" data-move="-1" aria-label="Move Arms and Core earlier" class="w-8 h-8 rounded-full bg-light-surface-container-lowest text-light-on-surface border border-light-outline-variant inline-flex items-center justify-center"><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></button>
+            <button type="button" data-move="1" aria-label="Move Arms and Core later" class="w-8 h-8 rounded-full bg-light-surface-container-lowest text-light-on-surface border border-light-outline-variant inline-flex items-center justify-center"><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+          </div>
+        </div>
+
+        <!-- Shoulders -->
+        <div data-day-id="shoulders" class="day-card-wrap relative">
+          <a href="../exercise-list/ExerciseList.html" data-component-id="card-interactive" data-component-type="card" data-component-variant="interactive" class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-gutter-lg flex flex-col justify-between gap-gutter-xl min-h-36 transition-transform duration-state-change ease-state-change hover:bg-light-surface-container-low active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-primary">
+            <header class="flex items-center justify-between">
+              <span class="material-symbols-outlined text-light-primary" aria-hidden="true">accessibility_new</span>
+              <span class="font-mono text-mono-sm text-light-on-surface-variant" data-design-text-token="mono-sm">4 lifts</span>
+            </header>
+            <div class="flex flex-col gap-gutter-xs">
+              <h3 class="font-headline text-headline-md text-light-on-surface" data-design-text-token="headline-md">Shoulders</h3>
+              <p class="font-body text-body-md text-light-on-surface-variant" data-design-text-token="body-md">Press, raises</p>
+            </div>
+          </a>
+          <div class="day-reorder-controls hidden absolute top-2 right-2 flex items-center gap-gutter-xs">
+            <button type="button" data-move="-1" aria-label="Move Shoulders earlier" class="w-8 h-8 rounded-full bg-light-surface-container-lowest text-light-on-surface border border-light-outline-variant inline-flex items-center justify-center"><span class="material-symbols-outlined" aria-hidden="true">arrow_back</span></button>
+            <button type="button" data-move="1" aria-label="Move Shoulders later" class="w-8 h-8 rounded-full bg-light-surface-container-lowest text-light-on-surface border border-light-outline-variant inline-flex items-center justify-center"><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <!-- Sticky Bottom Navigation -->
+    <nav aria-label="Primary navigation" class="sticky bottom-0 z-20 bg-light-surface-container-lowest/95 border-t border-light-outline-variant/60 px-page-margin py-gutter-sm grid grid-cols-2 gap-gutter-sm">
+      <a href="../workout-day-picker/WorkoutDayPicker.html" aria-current="page" class="flex flex-col items-center justify-center gap-gutter-xs py-gutter-xs rounded-md text-light-primary">
+        <span class="material-symbols-outlined" style="font-variation-settings: &#39;FILL&#39; 1;" aria-hidden="true">fitness_center</span>
+        <span class="font-label text-label-sm" data-design-text-token="label-sm">Workouts</span>
+      </a>
+      <a href="../pr-history/PRHistory.html" class="flex flex-col items-center justify-center gap-gutter-xs py-gutter-xs rounded-md text-light-on-surface-variant hover:text-light-on-surface">
+        <span class="material-symbols-outlined" aria-hidden="true">emoji_events</span>
+        <span class="font-label text-label-sm" data-design-text-token="label-sm">PR History</span>
+      </a>
+    </nav>
+
+  </div>
+
+  <script>
+    (function () {
+      const unitBtn = document.getElementById('unit-toggle');
+      const unitLabel = document.getElementById('unit-label');
+      const endBtn = document.getElementById('end-workout-btn');
+      const banner = document.getElementById('active-banner');
+
+      if (unitBtn && unitLabel) {
+        unitBtn.addEventListener('click', function () {
+          unitLabel.textContent = unitLabel.textContent.trim() === 'KG' ? 'LBS' : 'KG';
+        });
+      }
+
+      if (endBtn && banner) {
+        endBtn.addEventListener('click', function () {
+          banner.classList.add('hidden');
+        });
+      }
+
+      const daysGrid = document.getElementById('days-grid');
+      const reorderDaysBtn = document.getElementById('reorder-days-btn');
+      const reorderDaysLabel = document.getElementById('reorder-days-label');
+      const daysKey = 'liftmark_days_order';
+
+      function saveDaysOrder() {
+        if (!daysGrid) return;
+        const ids = Array.from(daysGrid.children).map(function (el) { return el.getAttribute('data-day-id'); });
+        try { localStorage.setItem(daysKey, JSON.stringify(ids)); } catch (e) {}
+      }
+
+      try {
+        const savedDays = JSON.parse(localStorage.getItem(daysKey) || 'null');
+        if (Array.isArray(savedDays) && daysGrid) {
+          savedDays.forEach(function (id) {
+            const card = daysGrid.querySelector('[data-day-id="' + id + '"]');
+            if (card) daysGrid.appendChild(card);
+          });
+        }
+      } catch (e) {}
+
+      if (reorderDaysBtn && daysGrid) {
+        let editingDays = false;
+        reorderDaysBtn.addEventListener('click', function () {
+          editingDays = !editingDays;
+          reorderDaysBtn.setAttribute('aria-pressed', String(editingDays));
+          if (reorderDaysLabel) reorderDaysLabel.textContent = editingDays ? 'Done' : 'Reorder';
+          Array.from(daysGrid.querySelectorAll('.day-reorder-controls')).forEach(function (ctrl) {
+            ctrl.classList.toggle('hidden', !editingDays);
+          });
+        });
+
+        daysGrid.addEventListener('click', function (e) {
+          const btn = e.target.closest('button[data-move]');
+          if (!btn) return;
+          e.preventDefault();
+          const wrap = btn.closest('.day-card-wrap');
+          const dir = parseInt(btn.getAttribute('data-move'), 10);
+          if (!wrap) return;
+          if (dir < 0 && wrap.previousElementSibling) {
+            daysGrid.insertBefore(wrap, wrap.previousElementSibling);
+          } else if (dir > 0 && wrap.nextElementSibling) {
+            daysGrid.insertBefore(wrap.nextElementSibling, wrap);
+          }
+          saveDaysOrder();
+        });
+      }
+    })();
+  </script>
+
+
+</body></html>

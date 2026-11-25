@@ -1,0 +1,351 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olympic Plates — Reference — LiftMark</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'light-primary': '#B22200',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#D93814',
+        'light-on-primary-container': '#FFFCFF',
+        'light-secondary': '#A0402A',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#FE876C',
+        'light-on-secondary-container': '#741F0D',
+        'light-tertiary': '#005CAF',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#0074DB',
+        'light-on-tertiary-container': '#FEFCFF',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FFDAD6',
+        'light-on-error-container': '#93000A',
+        'light-background': '#F8F9FF',
+        'light-on-background': '#0B1C30',
+        'light-surface': '#F8F9FF',
+        'light-surface-dim': '#CBDBF5',
+        'light-surface-bright': '#F8F9FF',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#EFF4FF',
+        'light-surface-container': '#E5EEFF',
+        'light-surface-container-high': '#DCE9FF',
+        'light-surface-container-highest': '#D3E4FE',
+        'light-on-surface': '#0B1C30',
+        'light-surface-variant': '#FFDAD2',
+        'light-on-surface-variant': '#5B403A',
+        'light-outline': '#907068',
+        'light-outline-variant': '#E4BEB5',
+        'light-inverse-surface': '#213145',
+        'light-inverse-on-surface': '#EAF1FF',
+        'light-inverse-primary': '#FFB4A3',
+        'light-shadow': '#000000',
+        'light-scrim': '#000000',
+        'dark-primary': '#FFB4A3',
+        'dark-on-primary': '#630F00',
+        'dark-primary-container': '#D93814',
+        'dark-on-primary-container': '#FFFCFF',
+        'dark-secondary': '#FFB4A3',
+        'dark-on-secondary': '#611202',
+        'dark-secondary-container': '#842B17',
+        'dark-on-secondary-container': '#FFA08A',
+        'dark-tertiary': '#A8C8FF',
+        'dark-on-tertiary': '#003061',
+        'dark-tertiary-container': '#0074DB',
+        'dark-on-tertiary-container': '#FEFCFF',
+        'dark-error': '#FFB4AB',
+        'dark-on-error': '#690005',
+        'dark-error-container': '#93000A',
+        'dark-on-error-container': '#FFDAD6',
+        'dark-background': '#031427',
+        'dark-on-background': '#D3E4FE',
+        'dark-surface': '#031427',
+        'dark-surface-dim': '#031427',
+        'dark-surface-bright': '#2A3A4F',
+        'dark-surface-container-lowest': '#000F21',
+        'dark-surface-container-low': '#0B1C30',
+        'dark-surface-container': '#102034',
+        'dark-surface-container-high': '#1B2B3F',
+        'dark-surface-container-highest': '#26364A',
+        'dark-on-surface': '#D3E4FE',
+        'dark-surface-variant': '#5B403A',
+        'dark-on-surface-variant': '#E4BEB5',
+        'dark-outline': '#AB8981',
+        'dark-outline-variant': '#5B403A',
+        'dark-inverse-surface': '#D3E4FE',
+        'dark-inverse-on-surface': '#213145',
+        'dark-inverse-primary': '#B72300',
+        'dark-shadow': '#000000',
+        'dark-scrim': '#000000',
+      },
+      borderRadius: {
+        'sm': '8px',
+        'DEFAULT': '12px',
+        'md': '16px',
+        'lg': '20px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '12px',
+        'gutter-lg': '16px',
+        'gutter-xl': '24px',
+        'section': '32px',
+        'page-margin': '16px',
+      },
+      fontFamily: {
+        'display': ['"Afacad Flux"', 'sans-serif'],
+        'headline': ['"Afacad Flux"', 'sans-serif'],
+        'title': ['"Afacad Flux"', 'sans-serif'],
+        'body': ['"Instrument Sans"', 'sans-serif'],
+        'label': ['"Instrument Sans"', 'sans-serif'],
+        'mono': ['"Spline Sans Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['56px', { lineHeight: '60px', letterSpacing: '-1.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['32px', { lineHeight: '36px', letterSpacing: '-0.75px', fontWeight: '700' }],
+        'headline-lg': ['36px', { lineHeight: '42px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'headline-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.4px', fontWeight: '700' }],
+        'headline-md': ['24px', { lineHeight: '30px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'title-lg': ['20px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '18px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '600' }],
+        'mono-metric': ['48px', { lineHeight: '52px', letterSpacing: '-1px', fontWeight: '700' }],
+        'mono-metric-mobile': ['32px', { lineHeight: '36px', letterSpacing: '-0.75px', fontWeight: '700' }],
+        'mono-sm': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'tick-feedback': '80ms',
+        'state-change': '120ms',
+        'surface-enter': '200ms',
+      },
+      transitionDelay: {
+        'tick-feedback': '0ms',
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'tick-feedback': 'ease-out',
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@600;700&amp;family=Instrument+Sans:wght@400;600&amp;family=Spline+Sans+Mono:wght@500;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-[884px] max-w-md mx-auto flex flex-col bg-light-surface" data-stitch-vh="min-h-[884px]===min-h-screen">
+
+    <!-- Sticky Contextual Header -->
+    <header class="sticky top-0 z-20 bg-light-surface/95 border-b border-light-outline-variant/60 px-page-margin py-gutter-md flex items-center justify-between gap-gutter-md">
+      <a href="../pr-entry/PREntry.html" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" aria-label="Back to PR entry" class="inline-flex items-center justify-center w-11 h-11 rounded-full bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface transition-transform duration-state-change ease-state-change hover:bg-light-surface-container-low active:scale-95">
+        <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+      </a>
+      <div class="flex-1 min-w-0">
+        <h1 class="font-headline text-title-lg text-light-on-surface" data-design-text-token="title-lg">Olympic Plates</h1>
+      </div>
+      <span class="font-mono text-mono-sm text-light-on-surface-variant" data-design-text-token="mono-sm">IPF SPEC</span>
+    </header>
+
+    <!-- Main Reference Grid -->
+    <main class="flex-1 px-page-margin py-gutter-xl flex flex-col gap-gutter-lg">
+
+      <section class="flex flex-col gap-gutter-xs">
+        <h2 class="font-headline text-headline-lg-mobile text-light-on-surface text-balance" data-design-text-token="headline-lg-mobile">Calibrated Steel Plates</h2>
+        <p class="font-body text-body-md text-light-on-surface-variant text-pretty" data-design-text-token="body-md">Color-coded metallic discs used on barbell lifts. Scale diameter and thickness match real competition specs.</p>
+      </section>
+
+      <!-- Shared Metallic SVG Gradients -->
+      <svg class="w-0 h-0 absolute" aria-hidden="true">
+        <defs>
+          <radialGradient id="plate-red" cx="35%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#F87171"></stop>
+            <stop offset="45%" stop-color="#DC2626"></stop>
+            <stop offset="85%" stop-color="#991B1B"></stop>
+            <stop offset="100%" stop-color="#7F1D1D"></stop>
+          </radialGradient>
+          <radialGradient id="plate-blue" cx="35%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#60A5FA"></stop>
+            <stop offset="45%" stop-color="#2563EB"></stop>
+            <stop offset="85%" stop-color="#1E40AF"></stop>
+            <stop offset="100%" stop-color="#1E3A8A"></stop>
+          </radialGradient>
+          <radialGradient id="plate-yellow" cx="35%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#FDE047"></stop>
+            <stop offset="45%" stop-color="#EAB308"></stop>
+            <stop offset="85%" stop-color="#A16207"></stop>
+            <stop offset="100%" stop-color="#854D0E"></stop>
+          </radialGradient>
+          <radialGradient id="plate-green" cx="35%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#4ADE80"></stop>
+            <stop offset="45%" stop-color="#16A34A"></stop>
+            <stop offset="85%" stop-color="#166534"></stop>
+            <stop offset="100%" stop-color="#14532D"></stop>
+          </radialGradient>
+          <radialGradient id="plate-white" cx="35%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#FFFFFF"></stop>
+            <stop offset="50%" stop-color="#E2E8F0"></stop>
+            <stop offset="85%" stop-color="#94A3B8"></stop>
+            <stop offset="100%" stop-color="#64748B"></stop>
+          </radialGradient>
+          <radialGradient id="plate-black" cx="35%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#475569"></stop>
+            <stop offset="45%" stop-color="#1E293B"></stop>
+            <stop offset="85%" stop-color="#0F172A"></stop>
+            <stop offset="100%" stop-color="#020617"></stop>
+          </radialGradient>
+          <radialGradient id="plate-chrome" cx="35%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#F8FAFC"></stop>
+            <stop offset="45%" stop-color="#CBD5E1"></stop>
+            <stop offset="85%" stop-color="#64748B"></stop>
+            <stop offset="100%" stop-color="#334155"></stop>
+          </radialGradient>
+          <linearGradient id="hub-steel" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#F1F5F9"></stop>
+            <stop offset="50%" stop-color="#94A3B8"></stop>
+            <stop offset="100%" stop-color="#475569"></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <!-- 2-Column Plate Grid (6 main plates) -->
+      <section aria-label="Primary competition plates" class="grid grid-cols-2 gap-gutter-md items-stretch">
+
+        <!-- 25 kg Red -->
+        <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-gutter-lg flex flex-col items-center justify-between gap-gutter-md">
+          <svg viewBox="0 0 120 120" class="w-28 h-28" aria-hidden="true">
+            <circle cx="60" cy="60" r="54" fill="url(#plate-red)" stroke="#7F1D1D" stroke-width="2"></circle>
+            <circle cx="60" cy="60" r="46" fill="none" stroke="#FCA5A5" stroke-width="1" stroke-opacity="0.45"></circle>
+            <circle cx="60" cy="60" r="24" fill="none" stroke="#7F1D1D" stroke-width="1.5"></circle>
+            <circle cx="60" cy="60" r="14" fill="url(#hub-steel)" stroke="#334155" stroke-width="1"></circle>
+            <circle cx="60" cy="60" r="8" fill="#F8F9FF" stroke="#475569" stroke-width="1"></circle>
+            <text x="60" y="34" text-anchor="middle" fill="#FFFFFF" font-family="Spline Sans Mono, monospace" font-size="11" font-weight="700">25</text>
+            <text x="60" y="96" text-anchor="middle" fill="#FEE2E2" font-family="Spline Sans Mono, monospace" font-size="9" font-weight="700">KG</text>
+          </svg>
+          <div class="text-center flex flex-col gap-gutter-xs">
+            <span class="font-mono text-title-md text-light-on-surface" data-design-text-token="title-md">25 kg</span>
+            <span class="font-body text-body-md text-light-on-surface-variant" data-design-text-token="body-md">Red • 450 mm</span>
+          </div>
+        </article>
+
+        <!-- 20 kg Blue -->
+        <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-gutter-lg flex flex-col items-center justify-between gap-gutter-md">
+          <svg viewBox="0 0 120 120" class="w-28 h-28" aria-hidden="true">
+            <circle cx="60" cy="60" r="54" fill="url(#plate-blue)" stroke="#1E3A8A" stroke-width="2"></circle>
+            <circle cx="60" cy="60" r="46" fill="none" stroke="#93C5FD" stroke-width="1" stroke-opacity="0.45"></circle>
+            <circle cx="60" cy="60" r="24" fill="none" stroke="#1E3A8A" stroke-width="1.5"></circle>
+            <circle cx="60" cy="60" r="14" fill="url(#hub-steel)" stroke="#334155" stroke-width="1"></circle>
+            <circle cx="60" cy="60" r="8" fill="#F8F9FF" stroke="#475569" stroke-width="1"></circle>
+            <text x="60" y="34" text-anchor="middle" fill="#FFFFFF" font-family="Spline Sans Mono, monospace" font-size="11" font-weight="700">20</text>
+            <text x="60" y="96" text-anchor="middle" fill="#DBEAFE" font-family="Spline Sans Mono, monospace" font-size="9" font-weight="700">KG</text>
+          </svg>
+          <div class="text-center flex flex-col gap-gutter-xs">
+            <span class="font-mono text-title-md text-light-on-surface" data-design-text-token="title-md">20 kg</span>
+            <span class="font-body text-body-md text-light-on-surface-variant" data-design-text-token="body-md">Blue • 450 mm</span>
+          </div>
+        </article>
+
+        <!-- 15 kg Yellow -->
+        <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-gutter-lg flex flex-col items-center justify-between gap-gutter-md">
+          <svg viewBox="0 0 120 120" class="w-28 h-28" aria-hidden="true">
+            <circle cx="60" cy="60" r="48" fill="url(#plate-yellow)" stroke="#854D0E" stroke-width="2"></circle>
+            <circle cx="60" cy="60" r="40" fill="none" stroke="#FEF08A" stroke-width="1" stroke-opacity="0.5"></circle>
+            <circle cx="60" cy="60" r="22" fill="none" stroke="#854D0E" stroke-width="1.5"></circle>
+            <circle cx="60" cy="60" r="14" fill="url(#hub-steel)" stroke="#334155" stroke-width="1"></circle>
+            <circle cx="60" cy="60" r="8" fill="#F8F9FF" stroke="#475569" stroke-width="1"></circle>
+            <text x="60" y="35" text-anchor="middle" fill="#422006" font-family="Spline Sans Mono, monospace" font-size="11" font-weight="700">15</text>
+            <text x="60" y="93" text-anchor="middle" fill="#422006" font-family="Spline Sans Mono, monospace" font-size="9" font-weight="700">KG</text>
+          </svg>
+          <div class="text-center flex flex-col gap-gutter-xs">
+            <span class="font-mono text-title-md text-light-on-surface" data-design-text-token="title-md">15 kg</span>
+            <span class="font-body text-body-md text-light-on-surface-variant" data-design-text-token="body-md">Yellow • 400 mm</span>
+          </div>
+        </article>
+
+        <!-- 10 kg Green -->
+        <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-gutter-lg flex flex-col items-center justify-between gap-gutter-md">
+          <svg viewBox="0 0 120 120" class="w-28 h-28" aria-hidden="true">
+            <circle cx="60" cy="60" r="42" fill="url(#plate-green)" stroke="#14532D" stroke-width="2"></circle>
+            <circle cx="60" cy="60" r="35" fill="none" stroke="#86EFAC" stroke-width="1" stroke-opacity="0.45"></circle>
+            <circle cx="60" cy="60" r="20" fill="none" stroke="#14532D" stroke-width="1.5"></circle>
+            <circle cx="60" cy="60" r="13" fill="url(#hub-steel)" stroke="#334155" stroke-width="1"></circle>
+            <circle cx="60" cy="60" r="8" fill="#F8F9FF" stroke="#475569" stroke-width="1"></circle>
+            <text x="60" y="37" text-anchor="middle" fill="#FFFFFF" font-family="Spline Sans Mono, monospace" font-size="10" font-weight="700">10</text>
+            <text x="60" y="90" text-anchor="middle" fill="#DCFCE7" font-family="Spline Sans Mono, monospace" font-size="8.5" font-weight="700">KG</text>
+          </svg>
+          <div class="text-center flex flex-col gap-gutter-xs">
+            <span class="font-mono text-title-md text-light-on-surface" data-design-text-token="title-md">10 kg</span>
+            <span class="font-body text-body-md text-light-on-surface-variant" data-design-text-token="body-md">Green • 325 mm</span>
+          </div>
+        </article>
+
+        <!-- 5 kg White -->
+        <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-gutter-lg flex flex-col items-center justify-between gap-gutter-md">
+          <svg viewBox="0 0 120 120" class="w-28 h-28" aria-hidden="true">
+            <circle cx="60" cy="60" r="34" fill="url(#plate-white)" stroke="#64748B" stroke-width="2"></circle>
+            <circle cx="60" cy="60" r="28" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.7"></circle>
+            <circle cx="60" cy="60" r="13" fill="url(#hub-steel)" stroke="#334155" stroke-width="1"></circle>
+            <circle cx="60" cy="60" r="8" fill="#F8F9FF" stroke="#475569" stroke-width="1"></circle>
+            <text x="60" y="42" text-anchor="middle" fill="#0F172A" font-family="Spline Sans Mono, monospace" font-size="10" font-weight="700">5</text>
+            <text x="60" y="84" text-anchor="middle" fill="#334155" font-family="Spline Sans Mono, monospace" font-size="8" font-weight="700">KG</text>
+          </svg>
+          <div class="text-center flex flex-col gap-gutter-xs">
+            <span class="font-mono text-title-md text-light-on-surface" data-design-text-token="title-md">5 kg</span>
+            <span class="font-body text-body-md text-light-on-surface-variant" data-design-text-token="body-md">White • 228 mm</span>
+          </div>
+        </article>
+
+        <!-- 2.5 kg Black Iron -->
+        <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-gutter-lg flex flex-col items-center justify-between gap-gutter-md">
+          <svg viewBox="0 0 120 120" class="w-28 h-28" aria-hidden="true">
+            <circle cx="60" cy="60" r="28" fill="url(#plate-black)" stroke="#020617" stroke-width="2"></circle>
+            <circle cx="60" cy="60" r="23" fill="none" stroke="#64748B" stroke-width="0.8" stroke-opacity="0.5"></circle>
+            <circle cx="60" cy="60" r="12" fill="url(#hub-steel)" stroke="#334155" stroke-width="1"></circle>
+            <circle cx="60" cy="60" r="8" fill="#F8F9FF" stroke="#475569" stroke-width="1"></circle>
+            <text x="60" y="45" text-anchor="middle" fill="#FFFFFF" font-family="Spline Sans Mono, monospace" font-size="8.5" font-weight="700">2.5</text>
+            <text x="60" y="81" text-anchor="middle" fill="#CBD5E1" font-family="Spline Sans Mono, monospace" font-size="7" font-weight="700">KG</text>
+          </svg>
+          <div class="text-center flex flex-col gap-gutter-xs">
+            <span class="font-mono text-title-md text-light-on-surface" data-design-text-token="title-md">2.5 kg</span>
+            <span class="font-body text-body-md text-light-on-surface-variant" data-design-text-token="body-md">Black • 190 mm</span>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- Full-width 1.25 kg Fractional Chrome Plate -->
+      <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="w-full bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-gutter-lg flex items-center gap-gutter-lg">
+        <svg viewBox="0 0 80 80" class="w-20 h-20 shrink-0" aria-hidden="true">
+          <circle cx="40" cy="40" r="24" fill="url(#plate-chrome)" stroke="#475569" stroke-width="2"></circle>
+          <circle cx="40" cy="40" r="19" fill="none" stroke="#FFFFFF" stroke-width="0.8" stroke-opacity="0.7"></circle>
+          <circle cx="40" cy="40" r="10" fill="url(#hub-steel)" stroke="#334155" stroke-width="1"></circle>
+          <circle cx="40" cy="40" r="7" fill="#F8F9FF" stroke="#475569" stroke-width="1"></circle>
+          <text x="40" y="27" text-anchor="middle" fill="#0F172A" font-family="Spline Sans Mono, monospace" font-size="7" font-weight="700">1.25</text>
+        </svg>
+        <div class="flex flex-col gap-gutter-xs">
+          <span class="font-mono text-title-md text-light-on-surface" data-design-text-token="title-md">1.25 kg Fractional</span>
+          <span class="font-body text-body-md text-light-on-surface-variant" data-design-text-token="body-md">Machined Chrome • 160 mm</span>
+        </div>
+      </article>
+
+    </main>
+
+  </div>
+
+
+</body></html>
