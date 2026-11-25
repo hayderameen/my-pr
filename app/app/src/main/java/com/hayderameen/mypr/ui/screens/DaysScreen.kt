@@ -99,7 +99,12 @@ class DaysViewModel(private val repo: LiftRepository, private val settings: Sett
         DaysUi(
             days = days.map { row ->
                 val isActive = active?.session?.dayId == row.day.id
-                val groups = musclesByDay[row.day.id].orEmpty().distinct().take(2).map { it.label }
+                // The day's two most-trained muscle groups (ties go to whichever comes first in the day).
+                val dayMuscles = musclesByDay[row.day.id].orEmpty()
+                val groups = dayMuscles.distinct()
+                    .sortedByDescending { g -> dayMuscles.count { it == g } }
+                    .take(2)
+                    .map { it.label }
                 DayUi(
                     id = row.day.id,
                     name = row.day.name,

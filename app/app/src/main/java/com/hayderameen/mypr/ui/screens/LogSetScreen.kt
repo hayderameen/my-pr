@@ -329,7 +329,6 @@ private fun ValueHeader(label: String, value: String, unit: String, onEdit: () -
         Row(
             Modifier
                 .clip(Radius.default)
-                .border(1.dp, cs.outlineVariant.copy(alpha = 0.0f), Radius.default)
                 .pressable(onClick = onEdit)
                 .padding(horizontal = Space.xs),
             verticalAlignment = Alignment.Bottom,

@@ -123,14 +123,12 @@ fun RulerSlider(
             val target = ((projected / stepPx).roundToInt() * stepPx).coerceIn(0f, maxOffset)
             val distance = abs(target - offset)
             val duration = (Motion.ENTER_MS + distance / 6f).toInt().coerceIn(Motion.STATE_MS, 900)
-            try {
-                animate(offset, target, animationSpec = tween(duration, easing = Motion.enterEasing)) { v, _ ->
-                    offset = v
-                    emit()
-                }
-            } finally {
-                interacting = false
+            animate(offset, target, animationSpec = tween(duration, easing = Motion.enterEasing)) { v, _ ->
+                offset = v
+                emit()
             }
+            // Only reached when the settle finished; a new drag cancels this job and keeps `interacting`.
+            interacting = false
         }
     }
 
@@ -217,7 +215,7 @@ fun RulerSlider(
                 size = Size(28.dp.toPx(), size.height - 8.dp.toPx()),
                 cornerRadius = androidx.compose.ui.geometry.CornerRadius(6.dp.toPx()),
             )
-            drawLine(cs.primary, Offset(center, top - 2.dp.toPx()), Offset(center, top + 40.dp.toPx()), 3.dp.toPx(), StrokeCap.Round)
+            drawLine(cs.primary, Offset(center, top - 2.dp.toPx()), Offset(center, top + 30.dp.toPx()), 3.dp.toPx(), StrokeCap.Round)
             val tri = Path().apply {
                 moveTo(center - 6.dp.toPx(), 4.dp.toPx())
                 lineTo(center + 6.dp.toPx(), 4.dp.toPx())
